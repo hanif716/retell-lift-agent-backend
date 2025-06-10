@@ -32,5 +32,9 @@ function getNextMonday() {
   return new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysUntilMonday);
 }
 
+// Home route (Render will use this for root)
 app.get("/", (req, res) => res.send("Retell Lift Appointment Webhook Running!"));
-app.listen(3000, () => console.log("Server running on port 3000"));
+
+// Use dynamic port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
